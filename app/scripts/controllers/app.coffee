@@ -28,6 +28,9 @@ class AppCtrl extends Ctrl
     @scope.remoteGameState[@scope.other] = 
       timelineBullet: 0
       state: "alive"
+    conn = new Firebase("https://famousduel.firebaseio.com/games/#{from}")
+    conn.on "value", (snap) =>
+      conn.onDisconnect().remove()
     @scope.gameStateMe = @firebase(new Firebase("https://famousduel.firebaseio.com/games/#{from}/#{to}/#{@scope.me}"))
     @scope.gameStateMe.$bind @scope, "remoteGameState.#{@scope.me}"
     @scope.gameStateOther = @firebase(new Firebase("https://famousduel.firebaseio.com/games/#{from}/#{to}/#{@scope.other}"))
@@ -80,7 +83,10 @@ class AppCtrl extends Ctrl
     .then (user)=>
       @scope.user = user
       @managePresence user, =>
-        @scope.challenges = @firebase(new Firebase("https://famousduel.firebaseio.com/challenges/#{@scope.uuid}"))
+        con = new Firebase("https://famousduel.firebaseio.com/challenges/#{@scope.uuid}")
+        con.on "value", =>
+          con.onDisconnect().remove()
+        @scope.challenges = @firebase(con)
         @scope.challenges.$bind @scope, "remoteChallenges"
 
     @scope.width = $(window).width()
