@@ -1,0 +1,48 @@
+//- z-index 
+//- 000-100   login
+//- 101-200   profile
+//- 201-300   job
+//- 301-400   tutorial
+//- 401-500   apply: like | applied | approved
+//- 601-700   menu
+//- 501-600   detail
+//- 601-700   question
+fa-app.full-screen(fa-perspective="500")
+  fa-modifier
+    fa-surface(fa-background-color="'rgba(0,0,0,0.5)'",fa-click="shoot()",fa-size="[undefined,undefined]")
+  fa-modifier(fa-translate="loop")
+  fa-modifier(fa-origin="[0.3,.8]")
+    fa-surface(fa-size="[true,true]")
+      img(ng-if="stateA=='alive'",src="/images/sprites/normal.png")
+      img(ng-if="stateA=='shoot'",src="/images/sprites/shoot.png")
+      img(ng-if="stateA=='dead'",src="/images/sprites/dead.png")
+    fa-modifier#bulletModLR
+      fa-surface(fa-size="[true,true]")
+        img(ng-if="stateA=='shoot' && stateB!='dead'",src="/images/sprites/bullet.png")
+  fa-modifier(fa-scale="[-1,1,1]",fa-origin="[0.7,.8]")
+    fa-surface(fa-size="[true,true]")
+      img(ng-if="stateB=='alive'",src="/images/sprites/normal.png")
+      img(ng-if="stateB=='shoot'",src="/images/sprites/shoot.png")
+      img(ng-if="stateB=='dead'",src="/images/sprites/dead.png")
+    fa-modifier#bulletModRL
+      fa-surface(fa-size="[true,true]")
+        img(ng-if="stateB=='shoot' && stateA!='dead'",src="/images/sprites/bullet.png")
+  fa-modifier
+    fa-surface(fa-size="[undefined,true]")
+      .score
+        .back-score
+  fa-modifier
+    fa-surface(fa-size="[undefined,true]")
+      .score
+        .tick-period
+  fa-modifier#frontMod
+    fa-surface(fa-align="[0,0]",fa-origin="[0,0]",fa-size="[undefined,true]")
+      .score
+        .front-score
+  fa-animation(timeline="time")
+    animate(targetmodselector="#frontMod", field="scale", startvalue="[0,1,1]", endvalue="[1,1,1]")
+  fa-animation(timeline="timeBulletLR")
+    animate(targetmodselector="#bulletModLR", field="translate", startvalue="[0,0,0]", endvalue="[width*.4,0,0]")
+  fa-animation(timeline="timeBulletRL")
+    animate(targetmodselector="#bulletModRL", field="translate", startvalue="[0,0,0]", endvalue="[width*.4,0,0]")
+    
