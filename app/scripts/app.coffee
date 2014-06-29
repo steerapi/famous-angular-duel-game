@@ -7,7 +7,8 @@ angular
     'ui.router',
     'restangular',
     'famous.angular',
-    'firebase'
+    'firebase',
+    'ionic'
   ])
   .config([
     '$locationProvider'

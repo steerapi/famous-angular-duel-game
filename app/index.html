@@ -2,7 +2,7 @@
 <html class="no-js">
   <head>
     <meta charset="utf-8">
-    <title>Simple.Careers</title>
+    <title>Duel Game</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory-->
@@ -59,7 +59,7 @@
     <!-- build:css styles/vendor.css-->
     <!-- bower:css-->
     <link rel="stylesheet" href="bower_components/normalize-css/normalize.css" />
-    <link rel="stylesheet" href="bower_components/ionic/release/css/ionic.css" />
+    <link rel="stylesheet" href="libs/ionic/css/ionic.css" />
     <!-- endbower-->
     <link rel="stylesheet" href="bower_components/ionic-contrib-frosted-glass/ionic.contrib.frostedGlass.css" />
     <link rel="stylesheet" href="libs/famous-angular/famous-angular.css">
@@ -102,24 +102,24 @@
     <script src="bower_components/angular-local-storage/angular-local-storage.js"></script>
     <script src="bower_components/angular-animate/angular-animate.js"></script>
     <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
-    <script src="bower_components/ionic/release/js/ionic.js"></script>
-    <script src="bower_components/ionic/release/js/ionic-angular.js"></script>
+    <script src="libs/ionic/js/ionic.js"></script>
+    <script src="libs/ionic/js/ionic-angular.js"></script>
     <!-- endbower-->
     <script src="bower_components/ionic-contrib-frosted-glass/ionic.contrib.frostedGlass.js"></script>
-    <script src="libs/requirejs/require.js"></script>
-    <script src="libs/famous-angular/famous-angular.js"></script>
     <!-- endbuild-->
     <script src="https://cdn.firebase.com/js/client/1.0.17/firebase.js"></script>
-    <script src="https://cdn.firebase.com/libs/angularfire/0.7.1/angularfire.min.js"></script>
     <script type='text/javascript' src='https://cdn.firebase.com/js/simple-login/1.6.1/firebase-simple-login.js'>
     </script>
+    <script src="https://cdn.firebase.com/libs/angularfire/0.7.1/angularfire.min.js"></script>
 
     <!-- build:js scripts/plugins.js-->
     <!-- endbuild-->
+    <script src="libs/requirejs/require.js"></script>
     <script>
       //set requirejs's base to where the famous lib folder lives
       require.config({baseUrl: 'libs'});
     </script>
+    <script src="libs/famous-angular/famous-angular.js"></script>
     <!-- build:js scripts/main.js-->
     <script src="scripts/main.js"></script>
     <!-- endbuild-->
